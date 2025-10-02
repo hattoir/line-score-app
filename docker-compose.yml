@@ -1,0 +1,22 @@
+# docker-compose.yml
+version: "3.9"
+services:
+  db:
+    image: postgres:16           # 公式Postgres。Arm(M1/M2)対応のマルチアーキ
+    container_name: line_score_db
+    environment:
+      POSTGRES_USER: app         # 初期ユーザー
+      POSTGRES_PASSWORD: app     # 初期パスワード（開発用）
+      POSTGRES_DB: line_score    # 初期DB
+    ports:
+      - "5432:5432"              # ホスト:コンテナ のポート公開（開発用）
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # データ永続化
+    healthcheck:                 # 起動直後の安定化チェック（任意）
+      test: ["CMD-SHELL", "pg_isready -U app -d line_score"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
