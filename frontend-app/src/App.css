@@ -1,0 +1,185 @@
+/* App.css (修正案) */
+
+/* アプリ全体のコンテナ */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e5ddd5;
+}
+
+/* ヘッダーのスタイル */
+.app-header {
+  padding: 1rem;
+  color: black;
+  text-align: left;
+  flex-shrink: 0; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* 検索ボックスのスタイル */
+.search-box {
+  padding: 0.5rem;
+  padding-right: 2rem; 
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  width: 200px;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="11" cy="11" r="8"%3E%3C/circle%3E%3Cline x1="21" y1="21" x2="16.65" y2="16.65"%3E%3C/line%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.5rem) center;
+  background-size: 1rem 1rem;
+}
+
+/* チャットルームと診断ボタンを囲むラッパー */
+.chatroom-wrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* 診断ボタン */
+.diagnosis-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  color: white;
+}
+
+/* ホバー時も文字色を白のままにする、という指定を追加 */
+.diagnosis-button:hover {
+  color: white;
+}
+
+/* 診断ページのスタイル */
+.diagnosis-page {
+  padding: 2rem;
+  background-color: #fff;
+  flex-grow: 1;
+  position: relative;
+}
+
+/* チャットルームを囲むコンテナ */
+.chat-room-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ChatRoomコンポーネント自体のスタイル */
+.chat-room {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #e5ddd5;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 80%;
+  gap: 0.75rem;
+}
+
+.message-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.message-bubble {
+  padding: 0.5rem 1rem;
+  border-radius: 18px;
+  color: #333;
+}
+
+.message-text {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.message-timestamp {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.other-message {
+  align-self: flex-start;
+}
+
+.my-message {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.other-message .message-bubble {
+  background-color: #ffffff;
+  border-top-left-radius: 0;
+}
+
+.my-message .message-bubble {
+  background-color: #dcf8c6;
+  border-top-right-radius: 0;
+}
+
+.my-message .message-timestamp {
+  align-self: flex-end;
+}
+
+.no-messages {
+  text-align: center;
+  color: #888;
+  padding-top: 2rem;
+}
