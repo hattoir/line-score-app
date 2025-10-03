@@ -27,15 +27,12 @@ const ChatRoom = ({ messages = [] }) => {
           // 'me' という名前のユーザーだったら自分のメッセージとする (今回は未使用)
           className={`message-container ${msg.user.name === 'me' ? 'my-message' : 'other-message'}`}
         >
-          {/* ▼ ここから追加 ▼ */}
           <div className="message-icon">
             {msg.user.icon}
           </div>
-          {/* ▲ ここまで追加 ▲ */}
 
           {/* ▼ メッセージ本体をdivで囲む ▼ */}
           <div className="message-content">
-            {/* ▼ ユーザー名表示を追加 ▼ */}
             <div className="user-name">{msg.user.name}</div>
 
             <div className="message-bubble">
